@@ -5,4 +5,3 @@ node /var/lib/ghost/generateConfig.js
 
 # Start Ghost with the production configuration
 ghost run --production
-
