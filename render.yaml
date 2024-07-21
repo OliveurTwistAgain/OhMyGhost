@@ -1,47 +1,37 @@
 services:
-- type: web
-  name: ghost
-  env: docker
-  autoDeploy: false
-  disk:
+  - type: web
     name: ghost
-    mountPath: /var/lib/ghost/content
-    sizeGB: 10 #Feel free to change this to suit your needs.
-  envVars:
-    - key: database__client
-      value: mysql
-    - key: database__connection__host
-      fromService:
-        type: pserv
-        name: mysql
-        property: host
-    - key: database__connection__database
-      value: ghostdb
-    - key: database__connection__user
-      value: mysql
-    - key: database__connection__password
-      fromService:
-        type: pserv
-        name: mysql
-        envVarKey: MYSQL_PASSWORD
-
-- type: pserv
-  name: mysql
-  plan: standard
-  env: docker
-  repo: https://github.com/render-examples/mysql
-  autoDeploy: false
-  disk:
-    name: mysql
-    mountPath: /var/lib/mysql
-    sizeGB: 10
-  envVars:
-    - key: MYSQL_DATABASE
-      value: ghostdb
-    - key: MYSQL_USER
-      value: mysql
-    - key: MYSQL_PASSWORD
-      generateValue: true
-    - key: MYSQL_ROOT_PASSWORD
-      generateValue: true
-
+    env: docker
+    plan: free
+    region: oregon
+    buildCommand: ""
+    startCommand: "./start.sh"
+    envVars:
+      - key: GHOST_URL
+        value: https://ohmyghost.onrender.com
+      - key: RENDER_EXTERNAL_URL
+        value: https://ohmyghost.onrender.com
+      - key: DATABASE_HOST
+        value: aws-0-eu-central-1.pooler.supabase.com
+      - key: DATABASE_USER
+        value: postgres.wpoeureadeahkbqcyanq
+      - key: DATABASE_PASSWORD
+        value: 2iFABt3Po933Qq1c
+      - key: DATABASE_NAME
+        value: postgres
+      - key: DATABASE_PORT
+        value: "6543"
+      - key: SERVER_PORT
+        value: "2368"
+      - key: SERVER_HOST
+        value: "0.0.0.0"
+      - key: MAIL_HOST
+        value: 127.0.0.1
+      - key: MAIL_PORT
+        value: "1025"
+      - key: MAIL_USER
+        value: your-protonmail-bridge-username
+      - key: MAIL_PASS
+        value: your-protonmail-bridge-password
+      - key: CONTENT_PATH
+        value: "content/"

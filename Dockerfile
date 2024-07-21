@@ -1,8 +1,16 @@
-# see versions at https://hub.docker.com/_/ghost
-FROM ghost:5.14.1
+FROM ghost:latest
 
-WORKDIR $GHOST_INSTALL
-COPY . .
+# Install PostgreSQL client for Ghost
+RUN npm install pg
 
-ENTRYPOINT []
-CMD ["./start.sh"]
+# Copy the generateConfig script
+COPY generateConfig.js /var/lib/ghost/generateConfig.js
+
+# Copy the start script
+COPY start.sh /var/lib/ghost/start.sh
+RUN chmod +x /var/lib/ghost/start.sh
+
+EXPOSE 2368
+
+# Use the custom start script
+CMD ["/var/lib/ghost/start.sh"]
