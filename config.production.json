@@ -7,18 +7,20 @@
       "user": "postgres.wpoeureadeahkbqcyanq",
       "password": "2iFABt3Po933Qq1c",
       "database": "postgres",
-      "port": 6543
+      "port": 5432
     }
   },
   "server": {
     "port": 2368,
     "host": "0.0.0.0"
   },
+  "url": "https://ohmyghost.onrender.com",
   "mail": {
     "transport": "SMTP",
     "options": {
       "host": "127.0.0.1",
       "port": 1025,
+      "secure": false,
       "auth": {
         "user": "your-protonmail-bridge-username",
         "pass": "your-protonmail-bridge-password"
