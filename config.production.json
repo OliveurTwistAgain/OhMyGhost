@@ -14,7 +14,6 @@
     "port": 2368,
     "host": "0.0.0.0"
   },
-  "url": "https://ohmyghost.onrender.com",
   "mail": {
     "transport": "SMTP",
     "options": {
