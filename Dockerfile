@@ -1,5 +1,16 @@
 FROM ghost:latest
 
+# Copy configuration files if needed
+COPY config.production.json /var/lib/ghost/config.production.json
+
+# Set environment variables if necessary
+ENV database__client=pg \
+    database__host=aws-0-eu-central-1.pooler.supabase.com \
+    database__port=6543 \
+    database__user=postgres.wpoeureadeahkbqcyanq \
+    database__password=2iFABt3Po933Qq1c \
+    database__database=postgres
+
 # Install PostgreSQL client for Ghost
 RUN npm install pg
 
