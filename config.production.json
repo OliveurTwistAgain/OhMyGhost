@@ -7,7 +7,7 @@
       "user": "postgres.wpoeureadeahkbqcyanq",
       "password": "2iFABt3Po933Qq1c",
       "database": "postgres",
-      "port": 5432
+      "port": 6543
     }
   },
   "server": {
